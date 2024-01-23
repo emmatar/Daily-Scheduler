@@ -3,8 +3,8 @@ function displayTime () {
   var today = dayjs();
   $('#currentDay').text(today.format('dddd, MMMM D h:mm:ss A'))
 }
-var number = 9;
 
+var number = 9;
 // Wrap all code that interacts with the DOM in a call to jQuery to ensure that
 // the code isn't run until the browser has finished rendering all the elements
 // in the html.
@@ -15,6 +15,7 @@ $(function () {
     var timeBlock = template.content.cloneNode(true);
     // select save button
     var $saveButton = $(timeBlock).find("button");
+
     // select DOM element with "hour of day" time and add one onto the time each loop
     var $timeNumber = $(timeBlock).find('#hour');
     if (number >= 9 && number < 12) {
@@ -23,29 +24,28 @@ $(function () {
     } else if (number === 12) {
       $timeNumber.text(number + "PM")
       number = 1;
-    } else {
+    } else if (number >= 1 && number <= 5) {
       $timeNumber.text(number + "PM")
       number++;
+    } else {
+      return;
     }
-
-
-
-
-    // add event listener for save button to log events to local storage
-    // save input to local storage
-    $saveButton.on('click', function () {
-      var event = localStorage.getItem("event");
-      var $textarea = $(timeBlock).find("textarea");
-      $textarea.val() = event;
-      localStorage.getItem("events") || [];
-      events.push(textInput);
-      localStorage.setItem("events", events);
-    })
-
-    // add class regarding current time color
-    // update id and time text
-    $(".container-lg").append(timeBlock);
+    $saveButton.attr("data-block", $timeNumber.text())
+    $("#time-block-container").append(timeBlock);
+    
   } 
+
+  $("#time-block-container").on('click', "button", function() {
+    let eventInput = $(this).siblings("textarea").val()
+    localStorage.setItem("events", JSON.stringify(eventInput))
+    let eventsStorage = JSON.parse(localStorage.getItem("events"));
+    eventInput = eventsStorage;
+// cant not get local storage to keep data after refreshing page. Data is logging but
+// not storing. Need help
+  }) 
+
+
+  
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
