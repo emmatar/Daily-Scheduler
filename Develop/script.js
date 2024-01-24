@@ -1,7 +1,7 @@
   // TODO: Add code to display the current date in the header of the page.
 function displayTime () {
   var today = dayjs();
-  $('#currentDay').text(today.format('dddd, MMMM D h:mm:ss A'))
+  $('#currentDay').text(today.format('dddd, MMMM D h:mm A'))
 }
 
 var number = 9;
@@ -12,12 +12,14 @@ $(function () {
   var template = document.querySelector("#time-block-template");
   // for-loop to rotate through hours of workday
   for(var i = 0; i < 9; i++) {
+    var today = dayjs().hour()
+    var hour = dayjs(today).format('h')
     var timeBlock = template.content.cloneNode(true);
     // select save button
     var $saveButton = $(timeBlock).find("button");
-
     // select DOM element with "hour of day" time and add one onto the time each loop
     var $timeNumber = $(timeBlock).find('#hour');
+    var textBox = $(timeBlock).find("textarea")
     if (number >= 9 && number < 12) {
       $timeNumber.text(number + "AM")
       number++;
@@ -30,22 +32,27 @@ $(function () {
     } else {
       return;
     }
+    if(hour < number) {
+      textBox.addClass('past');
+      textBox.removeClass('future');
+      textBox.removeClass('present');
+    } else if(number === hour) {
+      textBox.addClass('past');
+      textBox.removeClass('future');
+      textBox.removeClass('present');
+    } else {
+      textBox.addClass('past');
+      textBox.removeClass('future');
+      textBox.removeClass('present');
+    }
     $saveButton.attr("data-block", $timeNumber.text())
     $("#time-block-container").append(timeBlock);
-    
   } 
 
   $("#time-block-container").on('click', "button", function() {
-    let eventInput = $(this).siblings("textarea").val()
+    let eventInput = $(this).siblings("textarea").val();
     localStorage.setItem("events", JSON.stringify(eventInput))
-    let eventsStorage = JSON.parse(localStorage.getItem("events"));
-    eventInput = eventsStorage;
-// cant not get local storage to keep data after refreshing page. Data is logging but
-// not storing. Need help
   }) 
-
-
-  
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
@@ -64,7 +71,7 @@ $(function () {
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
   //
-  
+
   displayTime();
   setInterval(displayTime, 1000)  
 });
