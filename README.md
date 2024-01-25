@@ -31,7 +31,7 @@ So, cool. A user can type and save data...big woopty (probably not how to spell 
 The Daily Scheduler not only keeps track of the events you want to store, but it changes the color of the text box so the User knows if, and when, an event has passed (textbox will display <span style="color:gray">*Gray*</span>), is within the same hour (text box will display <span style="color:red">*RED*</span>) or if an event is in the future (text box will display <span style="color:green">*Green*</span>). How Cool?! Enjoy!
 
 
-![alt text](/Develop/Assets/images/img1.png)
+![alt text](/Assets/images/img1.png)
 
 ## Credits
 
