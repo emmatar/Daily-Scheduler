@@ -1,100 +1,39 @@
-# Scheduler
-# 05 Third-Party APIs: Work Day Scheduler
+# Daily Scheduler
 
-## Your Task
+## Description
 
-Create a simple calendar application that allows a user to save events for each hour of a typical working day (9am&ndash;5pm) by modifying starter code. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
+Welcome to the Daily Scheduler! An application set to help users keep track of their daily events with ....wait for it.....<span style="color:green">*C*</span><span style="color:purple">*o*</span><span style="color:red">*l*</span><span style="color:orange">*o*</span><span style="color:yellow">*r*</span><span style="color:cyan">*s*</span>!!
 
-You'll need to use the [Day.js](https://day.js.org/en/) library to work with date and time. Be sure to read the documentation carefully and concentrate on using Day.js in the browser.
+The Daily Scheduler affords users to save daily events in specific time blocks, and depending on the user's current time-of-day, the time blocks will change colors to notify the user if the event has passed, is within the current hour, or is still lingering in the near future!
 
-## User Story
+*Check "Usage" for more information on how to use The Daily Scheduler*
 
-```md
-AS AN employee with a busy schedule
-I WANT to add important events to a daily planner
-SO THAT I can manage my time effectively
-```
 
-## Acceptance Criteria
+## Installation
 
-```md
-GIVEN I am using a daily planner to create a schedule
-WHEN I open the planner
-THEN the current day is displayed at the top of the calendar
-WHEN I scroll down
-THEN I am presented with timeblocks for standard business hours of 9am&ndash;5pm
-WHEN I view the timeblocks for that day
-THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-WHEN I click into a timeblock
-THEN I can enter an event
-WHEN I click the save button for that timeblock
-THEN the text for that event is saved in local storage
-WHEN I refresh the page
-THEN the saved events persist
-```
+N/A
 
-The following animation demonstrates the application functionality:
+## Usage
 
-<!-- @TODO: create ticket to review/update image) -->
-![A user clicks on slots on the color-coded calendar and edits the events.](./Assets/05-third-party-apis-homework-demo.gif)
+The Daily Scheduler was designed to be simple yet efficient. The layout relfects this by being sectioned off into three key areas(right to left): Time, Text Area, and Save Button. 
 
-## Grading Requirements
+Time: On the left side of the User's screen, time blocks will be listed starting from 9AM and ending at 5PM. Here the user will decide what time block they would like their input to be located in. Next, the Text Area!
 
-> **Note**: If a Challenge assignment submission is marked as “0”, it is considered incomplete and will not count towards your graduation requirements. Examples of incomplete submissions include the following:
->
-> * A repository that has no code
->
-> * A repository that includes a unique name but nothing else
->
-> * A repository that includes only a README file but nothing else
->
-> * A repository that only includes starter code
+Text Area: The text box directly to the right of the User's decided time is where to put the user wanted text. To the Save Button!
 
-This Challenge is graded based on the following criteria:
+Save Button: Clicking the blue save button will save the User's text input (to their own browser's local storage). This feature is important because now the User is able to refresh the page and their data is still present until they are ready to delete.
 
-### Technical Acceptance Criteria: 40%
+We save the best for last!
+So, cool. A user can type and save data...big woopty (probably not how to spell that), anybody can do that!
 
-* Satisfies all of the above acceptance criteria plus the following:
+...But not so fast!...
 
-  * Uses a date utility library to work with date and time
+The Daily Scheduler not only keeps track of the events you want to store, but it changes the color of the text box so the User knows if, and when, an event has passed (textbox will display <span style="color:gray">*Gray*</span>), is within the same hour (text box will display <span style="color:red">*RED*</span>) or if an event is in the future (text box will display <span style="color:green">*Green*</span>). How Cool?! Enjoy!
 
-### Deployment: 32%
 
-* Application deployed at live URL
+![alt text](/Develop/Assets/images/img1.png)
 
-* Application loads with no errors
+## Credits
 
-* Application GitHub URL submitted
+To my peers who have helped and the KU Bootcamp!
 
-* GitHub repo contains application code
-
-### Application Quality: 15%
-
-* Application user experience is intuitive and easy to navigate
-
-* Application user interface style is clean and polished
-
-* Application resembles the mock-up functionality provided in the Challenge instructions
-
-### Repository Quality: 13%
-
-* Repository has a unique name
-
-* Repository follows best practices for file structure and naming conventions
-
-* Repository follows best practices for class/id naming conventions, indentation, quality comments, etc.
-
-* Repository contains multiple descriptive commit messages
-
-* Repository contains quality README file with description, screenshot, and link to deployed application
-
-## Review
-
-You are required to submit the following for review:
-
-* The URL of the deployed application
-
-* The URL of the GitHub repository, with a unique name and a README describing the project
-
-- - -
-© 2023 edX Boot Camps LLC. Confidential and Proprietary. All Rights Reserved.
